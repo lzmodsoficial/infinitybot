@@ -1,4 +1,4 @@
-# </Infinity Bot V4/>
+# </Infinity Bot V5/>
 <div align="center">
 </div>
 <p align="center">
@@ -12,18 +12,22 @@
 
 Um bot simples para whatsapp que está em desenvolvimento.
 ```bash
----------- Novidades Da V4 ----------
+---------- Novidades Da V5 ----------
     
-[- 1 Novo Comando -]
-- ping
+[- 4 Novos Comando -]
+- anti ligações [ .anticall on ]
+- anti pv [ .antipv on ]
+- perfil [ .perfil ]
+- linkgp [ .linkgp ]
+- Mudar o Prefixo Com Comando [ .prefix / ]
     
 [- Correçoes -]
-- Plays Arrumados Novamente
-- Logos Arrumadas Novamente
-- Conectar No Termux Porem Nao Na Heroku Arrumado! 
-    (qualquer outro erro na heroku e do proprio usuario dessa vez testei de ponta a ponta)
+- Plays Arrumados!!
+- attp arrumado
+- consultas arrumadas
+E diversas correções em vários comandos ksksks passei dando uma olhada em quase todos!
 
-em breve a v5 com varios novos comandos :)
+em breve a v6 com varios novos comandos :)
 ```
    
 ----------- Para Duvidas -----------
@@ -43,5 +47,4 @@ caso duvidas entre em contato! ( Clique Em Cima )
 - [Baixar Termux 117 ( Clique )](https://www.mediafire.com/file/plyu1fbkc9hpss4/Termux_117.apk/file)
     
 - [Baixar Acode Pro ( Clique )](https://www.mediafire.com/file/39o3dijk4tqyk2f/Acode_base.apk/file)
-# infinitybot
-# infinitybot
+
