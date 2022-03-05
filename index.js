@@ -876,23 +876,23 @@ case 'play':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply(`Cade o Nome Da Musica Mano?? \nExemplo: ${prefix}play rei lacoste`)
 reply(enviar.espere)
-anu = await fetchJson(`https://lzmods-api.xyz/api/yt/playmp3?nome=${q}&apikey=lz`)
+anu = await axios.get(`https://lzmods-api.xyz/api/yt/playmp3?nome=${q}&apikey=lz`)
 let resultadoplay = `
 🍀 a Musica「 ${q} 」Foi Encontrada Com Sucesso! 🍀
 
-☔Título : ${anu.resultado.titulo}
-☔Canal : ${anu.resultado.canal}
-☔Views : ${anu.resultado.views}
-☔Lançamento : ${anu.resultado.lançamento}
+☔Título : ${anu.data.resultado.titulo}
+☔Canal : ${anu.data.resultado.canal}
+☔Views : ${anu.data.resultado.views}
+☔Lançamento : ${anu.data.resultado.lançamento}
 
 Aguarde o Envio Do Audio...
 Audios Muito Pesadas Nao Serão Enviados.`
-buffer = await getBuffer(anu.resultado.thumb)
+buffer = await getBuffer(anu.data.resultado.thumb)
 sendButImage(from,`${resultadoplay}`,
 `💾 Caso Queira Outro Tipo Selecione Abaixo 💾`, buffer,
-[{buttonId:`.playdocumentokk ${anu.resultado.titulo}`, buttonText: {displayText: '📄 𝐃𝐨𝐜𝐮𝐦𝐞𝐧𝐭𝐨 📄'}, type: 1},
-{buttonId: `${prefix}playvideo ${anu.resultado.titulo}`, buttonText: {displayText: '🎥 𝐕𝐢𝐝𝐞𝐨 🎥'}, type:1}]);
-let audee = await getBuffer(anu.resultado.download)
+[{buttonId:`.playdocumentokk ${anu.data.resultado.titulo}`, buttonText: {displayText: '📄 𝐃𝐨𝐜𝐮𝐦𝐞𝐧𝐭𝐨 📄'}, type: 1},
+{buttonId: `${prefix}playvideo ${anu.data.resultado.titulo}`, buttonText: {displayText: '🎥 𝐕𝐢𝐝𝐞𝐨 🎥'}, type:1}]);
+let audee = await getBuffer(anu.data.resultado.download)
 lz.sendMessage(from, audee, audio, {quoted: info, mimetype: 'audio/mp4'})
 break
   
@@ -902,8 +902,8 @@ break
   reply(`
   Aguarde o Envio Do Video...
   Videos Muito Pesados Nao Serão Enviados.`)
-  anu = await fetchJson(`https://lzmods-api.xyz/api/yt/playmp4?nome=${q}&apikey=lz`)
-  let videomsc = await getBuffer(anu.resultado.download)
+  anu = await axios.get(`https://lzmods-api.xyz/api/yt/playmp4?nome=${q}&apikey=lz`)
+  let videomsc = await getBuffer(anu.data.resultado.download)
   lz.sendMessage(from, videomsc, video, {quoted: selo, mimetype: 'video/mp4'})
   break
   
@@ -912,8 +912,8 @@ break
   reply(`
   Aguarde o Envio Do Documento...
   Documentos Muito Pesados Nao Serão Enviados.`)
-  anu = await fetchJson(`https://lzmods-api.xyz/api/yt/playmp3?nome=${q}&apikey=lz`)
-  let audeb = await getBuffer(anu.resultado.download)
+  anu = await axios.get(`https://lzmods-api.xyz/api/yt/playmp3?nome=${q}&apikey=lz`)
+  let audeb = await getBuffer(anu.data.resultado.download)
   lz.sendMessage(from, audeb, document, {quoted: selo, mimetype: 'audio/mp3', filename: `${anu.resultado.titulo}.mp3`})
   break
   
@@ -925,20 +925,20 @@ break
   if (args.length < 1) return reply(`Cade o Nome Da Musica Mano?? \nExemplo: ${prefix}playdoc rei lacoste`)
   reply(enviar.espere)
   playdoc = body.slice(8)
-  anu = await fetchJson(`https://lzmods-api.xyz/api/yt/playmp3?nome=${q}&apikey=lz`)
+  anu = await axios.get(`https://lzmods-api.xyz/api/yt/playmp3?nome=${q}&apikey=lz`)
   let resultadodoc = `
   💎 a Musica「 ${q} 」Encontrada Com Sucesso! 💎
   
-  📌Título : ${anu.resultado.titulo}
-  📍Canal : ${anu.resultado.canal}
-  📌Views : ${anu.resultado.views}
+  📌Título : ${anu.data.resultado.titulo}
+  📍Canal : ${anu.data.resultado.canal}
+  📌Views : ${anu.data.resultado.views}
   
   Aguarde o Envio Do Documento...
   Documentos Muito Pesados Nao Serão Enviados.`
-  let aude = await getBuffer(anu.resultado.download)
-  buffer = await getBuffer(anu.resultado.thumb)
+  let aude = await getBuffer(anu.data.resultado.download)
+  buffer = await getBuffer(anu.data.resultado.thumb)
   lz.sendMessage(from, buffer, image, {quoted: selo, thumbnail: null, caption: `${resultadodoc}`})
-  lz.sendMessage(from, aude, document, {quoted: info, mimetype: 'audio/mp3', filename: `${anu.resultado.titulo}.mp3`})
+  lz.sendMessage(from, aude, document, {quoted: info, mimetype: 'audio/mp3', filename: `${anu.data.resultado.titulo}.mp3`})
   break
   
   //=====================================\\
@@ -971,19 +971,19 @@ break
   if (!isRG) return reply(`${NotRG}`)
   if (args.length < 1) return reply(`Cade o Nome Da Musica Mano?? \nExemplo: ${prefix}playmp4 rei lacoste`)
   reply(enviar.espere)
-  anu = await fetchJson(`https://lzmods-api.xyz/api/yt/playmp4?nome=${q}&apikey=lz`)
+  anu = await axios.get(`https://lzmods-api.xyz/api/yt/playmp4?nome=${q}&apikey=lz`)
   let resultadomp4 = `
   ✝️ Musica「 ${q} 」Foi Encontrada Com Sucesso! ✝️
   
-  🎈Título : ${anu.resultado.titulo}
-  🎈Canal : ${anu.resultado.canal}
-  🎈Views : ${anu.resultado.views}
-  🎈Lançada Em : ${anu.resultado.lançamento}
+  🎈Título : ${anu.data.resultado.titulo}
+  🎈Canal : ${anu.data.resultado.canal}
+  🎈Views : ${anu.data.resultado.views}
+  🎈Lançada Em : ${anu.data.resultado.lançamento}
   
   Aguarde o Envio...
   Videos Muito Pesadas Nao Serão Enviadas.`
-  let resultt = await getBuffer(anu.resultado.download)
-  buffer = await getBuffer(anu.resultado.thumb)
+  let resultt = await getBuffer(anu.data.resultado.download)
+  buffer = await getBuffer(anu.data.resultado.thumb)
   lz.sendMessage(from, buffer, image, {quoted: selo, thumbnail: null, caption: `${resultadomp4}`})
   lz.sendMessage(from, resultt, video, {quoted: selo, mimetype: 'video/mp4'})
   break
