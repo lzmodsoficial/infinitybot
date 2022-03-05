@@ -583,7 +583,7 @@ await lz.sendMessage(from, audiomenuu, audio, {quoted: info, mimetype: 'audio/mp
             ]);
   break
       
-  case 'menuuu':
+  case 'menuu':
 const audiomenu2 = fs.readFileSync('./~ Infinity Datab ~/audios/audiodomenu.mp3')  
 await lz.sendMessage(from, audiomenu2, audio, {quoted: info, mimetype: 'audio/mp4', ptt:true})
   if (!isRG) return reply(`${NotRG}`)
